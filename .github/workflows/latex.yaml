@@ -11,12 +11,12 @@ jobs:
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@master
         with:
-          root_file: ${{FULLNAME}}.tex
+          root_file: $FULLNAME.tex
           working_directory: ./
       - name: Zip files
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq -r current.zip ./${{FULLNAME}}.pdf
+          args: zip -qq -r current.zip ./$FULLNAME.pdf
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v2.x
       - name: Create Release
@@ -37,5 +37,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
           asset_path: ./current.zip
-          asset_name: ${FULLNAME}.zip
+          asset_name: $FULLNAME.zip
           asset_content_type: application/zip
