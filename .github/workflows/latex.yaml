@@ -1,7 +1,7 @@
 name: Publish LaTeX resume
 on:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   build_latex:
     runs-on: ubuntu-latest
