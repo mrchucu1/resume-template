@@ -7,16 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@master
         with:
-          root_file: $FULLNAME.tex
+          root_file: ${{ vars.FULLNAME }}.tex
           working_directory: ./
       - name: Zip files
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq -r current.zip ./$FULLNAME.pdf
+          args: zip -qq -r current.zip ./${{ vars.FULLNAME }}.pdf
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v2.x
       - name: Create Release
