@@ -16,7 +16,7 @@ jobs:
       - name: Zip files
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq -r current.zip ./${{ vars.FULLNAME }}.pdf
+          args: zip -qq -r ${{ vars.FULLNAME }}-${{ github.sha }}.zip ./${{ vars.FULLNAME }}.pdf
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v2.x
       - name: Create Release
@@ -25,7 +25,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.GITHUB_SHA_SHORT }}
+          tag_name: ${{ env.GITHUB_SHA_SHORT }}-latest
           release_name: Release ${{ env.GITHUB_SHA_SHORT }}
           draft: false
           prerelease: true
@@ -35,7 +35,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./current.zip
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ vars.FULLNAME }}-${{ github.sha }}.zip
           asset_name: ${{ vars.FULLNAME }}.zip
           asset_content_type: application/zip
