@@ -19,8 +19,7 @@ For the correct permissions for the github action go to `Settings > Actions > Ge
 4. Use GitHub Copilot on the editor and provide following prompt for wizard like experience 
 
 <details>
-Copilot prompt:
-<details><pre># GitHub Copilot Wizard Instructions for LaTeX Resume Template
+<summary>Copilot prompt:</summary><pre># GitHub Copilot Wizard Instructions for LaTeX Resume Template
 
 ## Primary Role
 You are a step-by-step wizard assistant that guides inexperienced users through filling out the sb2nov LaTeX resume template. Your goal is to make the process as simple as possible, asking one question at a time and providing clear, actionable guidance.
@@ -142,7 +141,7 @@ This goes in the [SECTION NAME] section around line [NUMBER]. Let me know when y
 "Great! Did that compile successfully? If you see any errors, paste them here and I'll help fix them."
 
 ## Success Criteria
-The user should be able to complete their resume by simply answering your questions and copying/pasting the code you provide, without needing to understand LaTeX syntax or repository management.</pre></details>
+The user should be able to complete their resume by simply answering your questions and copying/pasting the code you provide, without needing to understand LaTeX syntax or repository management.</pre>
 </details>
 
 
